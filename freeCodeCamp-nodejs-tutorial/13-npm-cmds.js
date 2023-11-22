@@ -1,3 +1,5 @@
+// NPM CMDS & GLOBAL + LOCAL DEPENDENCIES INSTALLATION
+
 // npm - global command, comes with the node installation
 // npm --version OR npm --v - you can use either of these commands to check which version of npm you have locally
 
@@ -29,6 +31,8 @@ const items = [1, [2, [3, [4]]]];
 const newItems = _.flattenDeep(items);
 console.log(newItems);
 
+console.log('hello world');
+
 // VERSION CONTROL - GIT
 /* typically, the node_modules folder will be included in the .gitignore file which means they will not be pushed to the repo.
 this means that whoever clones the repo will not also clone the node_modules folder that contains all the needed dependencies,
@@ -36,3 +40,9 @@ but this is not a problem, because after cloning the repo, simply open the termi
 and run the command npm install. npm will check what dependencies are listed in the package.json and install them automatically 
 after running the command. This will also add in the package-lock.json file as well!
 */
+
+/* global installation of packages can be done from the terminal itself without navigating to the desried folder,
+you can then run the command in the integrated terminal in vs code and that command should now function as expected 
+
+e.g. for this project, the terminal was opened and the following command entered: sudo npm install -g nodemon
+and then in vs code's integrated terminal, the nodemon app.js command was now working */
