@@ -1,4 +1,4 @@
-const http = require('http');
+const http = require('http'); // require is vanilla JS, whereas import is Node.js, both achieve the same thing
 
 const server = http.createServer((req, res) => { // req = incoming request from client, res = response that is sent back
     // console.log(req); 
