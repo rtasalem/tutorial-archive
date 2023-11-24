@@ -1,52 +1,32 @@
-// MIDDLEWARE
-
-/** Middleware is everywhere in Express.js. Middleware executes during the request to the server. Some argue that Express apps are 
- * just made up of many middleware functions put together.
- */
-
+// METHODS
 const express = require('express');
 const app = express();
-const logger = require('./logger.js');
+// let { people } = require('./data');
+const people = require('./routes/people');
+const auth = require('./routes/auth');
 
-app.use('/api', logger);
-// having '/api' specified above means that the url for the home and about pages WILL NOT appear in the console
-// this is because specifying a path, this means logger will only be applied to any route after the '/api'
-// removing the path will mean the logger is applied to any route
+// Static Assets
+app.use(express.static('./methods-public'));
 
-// req => middleware => res (middleware sits in the middle of the request and the response)
+// Parse from data
+app.use(express.urlencoded({ extended: false }));
 
-// when working with middleware, you must pass it onto the next middleware unless you're terminating the whole cycle by sending back a response
+// Parse JSON
+app.use(express.json());
 
-// below is the logger function, but still, it's better to have this in a separate file (see the logger.js file + line 9)
-// const logger = (req, res, next) => { // must reference the logger in the middleware function (see line 19 as an example)
-//     const method = req.method;
-//     const url = req.url;
-//     const time = new Date().getFullYear();
-//     console.log(method, url, time);
-//     next();
-// };
+app.use('/api/people', people);
+app.use('/login', auth);
 
-app.get('/', (req, res) => {
-    // below is logging to the console the method, url, and time, but to do this for each method would be inefficient. see above for cleaner code.
-    // const method = req.method;
-    // const url = req.url;
-    // const time = new Date().getFullYear();
-    // console.log(method, url, time);
-    res.send('Home');
-});
+// POST - Insert NEW name into the array and display a message with that name, first method
+// app.post('/login', (req, res) => {
+//     const { name } = req.body;
+//     if (name) {
+//         return res.status(200).send(`Welcome ${name}`);
+//     }
+//     res.status(401).send('Please provide credentials');
+// });
 
-app.get('/about', (req, res) => {
-    res.send('About');
-});
-
-app.get('/api/products', (req, res) => {
-    res.send('Products');
-});
-
-app.get('/api/items', (req, res) => {
-    res.send('Items');
-});
-
+// LISTEN - specifying the port number on which the application is running and is 'listening' for HTTP requests
 app.listen(4000, () => {
     console.log('Server is listening on port 4000...');
 });
