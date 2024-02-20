@@ -1,5 +1,5 @@
 # Tutorial Archive
-This repository contains all tutorials that I have completed to further my skills as a software developer. 
+This repository is essentially where I dump code written for any tutorials I've completed.
 ## Contents
 1. [Node.js](https://github.com/rtasalem/tutorial-archive/tree/main/freeCodeCamp-nodejs-tutorial) and [Express.js](https://github.com/rtasalem/tutorial-archive/tree/main/freecodecamp-express-tutorial) - Full Course, an 8-hour [YouTube tutorial](https://youtu.be/Oe421EPjeBE?si=Vm3B6BOYkkxuUst8) provided by [freeCodeCamp](https://www.freecodecamp.org/). The original source code for this tutorial is made available by freeCodeCamp, my code just contains extra comments and notes I wrote for my own understanding while following along with the tutorial.
 2.  [Learn PostgreSQL Tutorial - Full Course for Beginners](https://github.com/rtasalem/tutorial-archive/tree/main/freecodecamp-postgresql-tutorial), a 4-hour [YouTube tutorial](https://youtu.be/qw--VYLpxG4) provided by [freeCodeCamp](https://www.freecodecamp.org/). These are the SQL tables I used for the tutorial.
